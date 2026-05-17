@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0a0a0c;
+  color: #e8e8ee;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Bloomberg terminal aesthetic */
+.font-mono-tight {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  font-feature-settings: "tnum" on, "ss01" on;
+  letter-spacing: -0.01em;
+}
+
+.text-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a32;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a44;
+}
+
+/* Subtle grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Live indicator pulse */
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 156, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 255, 156, 0); }
+}
+.live-dot {
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+/* Signal flash */
+@keyframes signal-flash {
+  0% { background-color: rgba(0, 255, 156, 0.15); }
+  100% { background-color: transparent; }
+}
+.signal-new {
+  animation: signal-flash 2.5s ease-out;
+}
+
+/* Marquee ticker */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker 60s linear infinite;
+}
+
+/* Score gauge glow */
+.score-bull {
+  text-shadow: 0 0 24px rgba(0, 255, 156, 0.3);
+}
+.score-bear {
+  text-shadow: 0 0 24px rgba(255, 59, 107, 0.3);
+}
+
+/* Hard divider lines, terminal style */
+.div-line {
+  border-color: #1f1f26;
+}
